@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="application/javascript">
+        var urlParams = new URLSearchParams(window.location.search);
+        var urlAuthCode = urlParams.get('code'),
+            urlState = urlParams.get('state'),
+            urlError = urlParams.get('error'),
+            urlDescription = urlParams.get('error-description');
+
+        if(urlError){
+            alert("Following error throws :"+urlError+" & message: "+urlDescription);
+        }else{
+            window.opener.postAuthorize(urlAuthCode,urlState);
+        }
+        window.close()
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
